@@ -1,0 +1,8 @@
+hello
+salesianum
+senior
+freshman
+sophomore
+junior
+programming
+hat
