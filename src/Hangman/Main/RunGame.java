@@ -29,9 +29,16 @@ public class RunGame {
     public static boolean play(){
         //initialize any variables you may need
         String secretWord = LoadFile.getWord();
+        String[] lettersGuessed = {};
+        int missesRemaining = 5;
+        String[] hangmanWord = new String[secretWord.length()];
         System.out.println("my secret word: " +secretWord);
         //begin the while loop to play the game.
-
+        while (true){
+            String display = createDisplayString(lettersGuessed, missesRemaining, hangmanWord);
+            String guess = handleUserInputLetterGuess(lettersGuessed, displayString);
+            updateHangmanWord(guess, secretWord, hangmanWord);
+        }
 
         //return true on win or false on loss.        
         return false;
@@ -57,10 +64,22 @@ public class RunGame {
      * 
      * */
 
-    public static String createDisplayString(String[] lettersGuessed, int missesRemaining, String[] hangmanWord){
+    public static void createDisplayString(String[] lettersGuessed, int missesRemaining, String[] hangmanWord){
         //TODO take all contents of the game state and print it in a legible state
+       String start = "letters you've guessed:";
+       String letters = "";
+       for (int x = 0; x < lettersGuessed.length; x++){
+            letters += lettersGuessed[x];
+       }
+        System.out.println(lettersGuessed);
+        System.out.println(missesRemaining);
+        String hiddenWord = "";
+        for (int x = 0; x < hangmanWord.length; x++){
+           hiddenWord += hangmanWord[x];
+        }
+        System.out.println(hangmanWord);
         //it should look similar to the example above.
-        return null;
+        
     }
 
     /**
@@ -82,6 +101,11 @@ public class RunGame {
         //TODO prompt a user guess and verify it is a valid guess.
         //Return the valid guess as a string.
         String guess = "";
+        if (lettersGuessed = ) {
+            return 
+        } else {
+            System.out.println("you already guessed that");
+        }
        //take input from user
        guess = App.readInput.nextLine();
        //validate input
@@ -105,6 +129,7 @@ public class RunGame {
 
     public static String[] updateHangmanWord(String guessedLetter, String secretWord, String[] hangmanWord){
         //TODO take the original hangman word and update it to include the guessed letter
+
         //for each index of the letter
         return hangmanWord;
     }

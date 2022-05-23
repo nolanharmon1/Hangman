@@ -24,15 +24,29 @@ public class App {
     public static void main(String[] args) throws Exception {
         boolean winLose;
         boolean continuePlaying = true;
+        int numWins = 0;
+        int numLosses = 0;
         
         while(continuePlaying){
             //this will run your game and return true or false.
             winLose = RunGame.play(); 
             //TODO: calc win / loss
-            //TODO: do you want to play again?
-            readInput.nextLine();
+            if (winLose == true){
+                numWins ++;
+            }
+            else{
+                numLosses ++;
+            }
+            System.out.println("Would you like to play again?");
+            String yesNo = readInput.nextLine();
+            if (yesNo.equals("no")){
+            continuePlaying = false;
+             System.out.println("Wins: " + numWins + " Losses:  " + numLosses);
+            } 
+
         }
         //TODO: Print Win / Loss
+        System.out.println();
         readInput.close();
     }
 }
